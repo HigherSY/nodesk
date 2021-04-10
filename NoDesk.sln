@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NoDesk", "NoDesk\NoDesk.vcxproj", "{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NoDeskCommon", "NoDeskCommon\NoDeskCommon.vcxitems", "{82A2D04A-3A54-45DD-90F2-E1A53316A339}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NoDeskRT", "NoDeskRT\NoDeskRT.vcxproj", "{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NoDeskInstaller", "NoDeskInstaller\NoDeskInstaller.vcxproj", "{DBACCFFE-5206-417C-91A7-C335FC368E64}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		NoDeskCommon\NoDeskCommon.vcxitems*{79feabb5-3cfa-4471-bd66-f241a4fea7fe}*SharedItemsImports = 4
+		NoDeskCommon\NoDeskCommon.vcxitems*{7a39d95b-7849-4e61-bf38-9e2ec47b8e61}*SharedItemsImports = 4
+		NoDeskCommon\NoDeskCommon.vcxitems*{82a2d04a-3a54-45dd-90f2-e1a53316a339}*SharedItemsImports = 9
+		NoDeskCommon\NoDeskCommon.vcxitems*{dbaccffe-5206-417c-91a7-c335fc368e64}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Debug|x64.ActiveCfg = Debug|x64
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Debug|x64.Build.0 = Debug|x64
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Debug|x86.Build.0 = Debug|Win32
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Release|x64.ActiveCfg = Release|x64
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Release|x64.Build.0 = Release|x64
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Release|x86.ActiveCfg = Release|Win32
+		{7A39D95B-7849-4E61-BF38-9E2EC47B8E61}.Release|x86.Build.0 = Release|Win32
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Debug|x64.ActiveCfg = Debug|x64
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Debug|x64.Build.0 = Debug|x64
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Debug|x86.ActiveCfg = Debug|Win32
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Debug|x86.Build.0 = Debug|Win32
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Release|x64.ActiveCfg = Release|x64
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Release|x64.Build.0 = Release|x64
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Release|x86.ActiveCfg = Release|Win32
+		{79FEABB5-3CFA-4471-BD66-F241A4FEA7FE}.Release|x86.Build.0 = Release|Win32
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Debug|x64.ActiveCfg = Debug|x64
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Debug|x64.Build.0 = Debug|x64
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Debug|x86.ActiveCfg = Debug|Win32
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Debug|x86.Build.0 = Debug|Win32
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Release|x64.ActiveCfg = Release|x64
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Release|x64.Build.0 = Release|x64
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Release|x86.ActiveCfg = Release|Win32
+		{DBACCFFE-5206-417C-91A7-C335FC368E64}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14827DBB-AB0E-40EC-B20C-221BCB8B4075}
+	EndGlobalSection
+EndGlobal
