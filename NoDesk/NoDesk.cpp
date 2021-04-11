@@ -18,7 +18,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	hInst = hInstance;
 	GeneratePaths();
 	GetModuleFileNameW(hInst, szSelfFilename, MAX_PATH);
-	if (wcscmp(PathFindFileNameW(szSelfFilename), target_launcher) != 0) {
+	if (wcscmp(szSelfFilename, target_launcher) != 0) {
 		return 0;
 	}
 
