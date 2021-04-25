@@ -3,7 +3,7 @@
 #include "NoDesk/process.h"
 #include "NoDesk/strings.h"
 
-BOOL SimpleCreateProcess(LPWSTR lpCmdLine)
+BOOL SimpleCreateProcess(LPCWSTR lpApp, LPWSTR lpCmdLine)
 {
 	STARTUPINFOW si = { 0 };
 	PROCESS_INFORMATION pi = { 0 };
@@ -11,7 +11,7 @@ BOOL SimpleCreateProcess(LPWSTR lpCmdLine)
 	si.dwFlags = STARTF_USESHOWWINDOW;
 	si.wShowWindow = SW_NORMAL;
 
-	BOOL ret = CreateProcessW(NULL, lpCmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+	BOOL ret = CreateProcessW(lpApp, lpCmdLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 	CloseHandle(pi.hProcess);
 	CloseHandle(pi.hThread);
 	return ret;

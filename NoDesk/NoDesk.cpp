@@ -3,6 +3,14 @@
 #include "NoDesk/strings.h"
 #include "NoDesk/paths.h"
 #include "NoDesk/process.h"
+#include "NoDesk/update.h"
+
+#include <nlohmann/json.hpp>
+
+#define UPDATE_SOURCE "http://localhost:8000/update_v1.json"
+#define LOCAL_VERSION 0
+
+using json = nlohmann::json;
 
 HINSTANCE hInst;
 WCHAR szSelfFilename[MAX_PATH];
@@ -20,6 +28,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	GetModuleFileNameW(hInst, szSelfFilename, MAX_PATH);
 	if (wcscmp(szSelfFilename, target_launcher) != 0) {
 		return 0;
+	}
+
+	std::string szUpdateInfo;
+	if (update::GetUpdateInfo(UPDATE_SOURCE, szUpdateInfo)) {
+		auto jsUpdateInfo = json::parse(szUpdateInfo);
+		int remoteVersion = jsUpdateInfo["version"].get<int>();
+
+		if (remoteVersion > LOCAL_VERSION) {
+			update::DownloadAndUpdate(szUpdateInfo);
+		}
 	}
 
 	if (!PathFileExistsW(target_dll)) {

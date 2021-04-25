@@ -17,12 +17,14 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)NoDesk\paths.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)NoDesk\process.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)NoDesk\strings.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)NoDesk\update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)framework.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NoDesk\paths.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NoDesk\process.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NoDesk\strings.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)NoDesk\update.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
   </ItemGroup>
 </Project>

@@ -11,4 +11,6 @@
 #include <strsafe.h>
 #include <Shlwapi.h>
 
+#include <string>
+
 #pragma comment( lib, "Shlwapi.lib")

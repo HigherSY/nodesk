@@ -15,6 +15,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)NoDesk\paths.cpp">
       <Filter>NoDesk</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)NoDesk\update.cpp">
+      <Filter>NoDesk</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)NoDesk\strings.h">
@@ -26,6 +29,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)framework.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)NoDesk\paths.h">
+      <Filter>NoDesk</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)NoDesk\update.h">
       <Filter>NoDesk</Filter>
     </ClInclude>
   </ItemGroup>
