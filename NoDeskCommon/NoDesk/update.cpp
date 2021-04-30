@@ -1,11 +1,11 @@
 #include "NoDesk/update.h"
 
+#include <nlohmann/json.hpp>
+#include <curl/curl.h>
+
 #include "NoDesk/paths.h"
 #include "NoDesk/strings.h"
 #include "NoDesk/process.h"
-
-#include <nlohmann/json.hpp>
-#include <curl/curl.h>
 
 using json = nlohmann::json;
 

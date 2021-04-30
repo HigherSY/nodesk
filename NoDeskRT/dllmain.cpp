@@ -1,8 +1,8 @@
 ﻿#include "dllmain.h"
+
 #include <detours.h>
 
 #include "NoDesk/strings.h"
-
 #include "DetourFunctions.h"
 
 WCHAR szSelfPath[MAX_PATH];

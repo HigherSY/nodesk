@@ -1,11 +1,11 @@
 ﻿#include "NoDesk.h"
 
+#include <nlohmann/json.hpp>
+
 #include "NoDesk/strings.h"
 #include "NoDesk/paths.h"
 #include "NoDesk/process.h"
 #include "NoDesk/update.h"
-
-#include <nlohmann/json.hpp>
 
 #define UPDATE_SOURCE "http://localhost:8000/update_v1.json"
 #define LOCAL_VERSION 0
