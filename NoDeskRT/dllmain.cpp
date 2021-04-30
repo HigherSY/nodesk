@@ -1,21 +1,31 @@
 ﻿#include "dllmain.h"
 #include <detours.h>
 
+#include "NoDesk/strings.h"
+
 #include "DetourFunctions.h"
 
 WCHAR szSelfPath[MAX_PATH];
+WCHAR szExePath[MAX_PATH];
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
                      )
 {
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
+    if (ul_reason_for_call == DLL_THREAD_ATTACH || ul_reason_for_call == DLL_THREAD_DETACH) return TRUE;
+
+    if (ul_reason_for_call == DLL_PROCESS_ATTACH) {
         GetModuleFileNameW(hModule, szSelfPath, MAX_PATH);
-        
-        DetourRestoreAfterWith();
+        GetModuleFileNameW(NULL, szExePath, MAX_PATH);
+
+        if (wcscmp(PathFindFileNameW(szExePath), L"dwm.exe") != 0) {
+            DEBUG(szExePath);
+            FreeLibraryAndExitThread(hModule, ERROR_ACCESS_DENIED);
+            return FALSE;
+        }
+
+        // DetourRestoreAfterWith();
 
         DetourTransactionBegin();
         DetourUpdateThread(GetCurrentThread());
@@ -27,12 +37,9 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         DetourAttach(&(PVOID&)fpSetWindowPos, MySetWindowPos);
         DetourAttach(&(PVOID&)fpShell_NotifyIconW, MyShell_NotifyIconW);
         DetourTransactionCommit();
-        break;
-    case DLL_THREAD_ATTACH:
-        break;
-    case DLL_THREAD_DETACH:
-        break;
-    case DLL_PROCESS_DETACH:
+    }
+
+    if (ul_reason_for_call == DLL_PROCESS_DETACH) {
         DetourTransactionBegin();
         DetourUpdateThread(GetCurrentThread());
         DetourDetach(&(PVOID&)fpCreateProcessW, MyCreateProcessW);
@@ -43,8 +50,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         DetourDetach(&(PVOID&)fpSetWindowPos, MySetWindowPos);
         DetourDetach(&(PVOID&)fpShell_NotifyIconW, MyShell_NotifyIconW);
         DetourTransactionCommit();
-        break;
     }
+
     return TRUE;
 }
 
