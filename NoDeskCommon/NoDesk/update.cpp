@@ -7,6 +7,14 @@
 #include "NoDesk/strings.h"
 #include "NoDesk/process.h"
 
+#ifndef _DEBUG
+
+#pragma comment(lib, "Ws2_32.Lib")
+#pragma comment(lib, "Wldap32.Lib")
+#pragma comment(lib, "Crypt32.Lib")
+
+#endif // !_DEBUG
+
 using json = nlohmann::json;
 
 namespace update {
@@ -90,6 +98,13 @@ namespace update {
 
         FILE* launcherTemp;
         _wfopen_s(&launcherTemp, L"launcher.tmp", L"wb");
+
+        if (launcherTemp == nullptr) {
+            DEBUG(L"[NoDesk] Update: 无法创建 tmp 文件");
+            curl_easy_cleanup(conn);
+            return false;
+        }
+
         curl_easy_setopt(conn, CURLOPT_WRITEDATA, launcherTemp);
 
         if (performAndOK(conn)) {

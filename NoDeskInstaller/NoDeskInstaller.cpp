@@ -6,6 +6,7 @@
 #include "NoDesk/paths.h"
 #include "NoDesk/strings.h"
 #include "NoDesk/process.h"
+#include "NoDesk/crypt.h"
 
 void ConfigureStartup() {
 	HKEY hKey;
@@ -30,6 +31,15 @@ int main()
     GeneratePaths();
 
     wprintf(L"%s\n%s\n%s\n%s\n", target_dll, target_exe, target_launcher, config_service);
+	std::string szHash;
+
+	crypt::computeSHA256(L"NoDesk.exe", szHash);
+	printf("Launcher: %s\n", szHash.c_str());
+	crypt::computeSHA256(L"AnyDesk.exe", szHash);
+	printf("AnyDesk.exe: %s\n", szHash.c_str());
+	crypt::computeSHA256(L"NoDeskRT.dll", szHash);
+	printf("NoDeskRT: %s\n", szHash.c_str());
+
 	if (wcscmp(szCurName, L"NoDeskInstaller.exe") == 0) {
 		wprintf(L"Go!\n");
 
